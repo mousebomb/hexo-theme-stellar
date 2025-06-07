@@ -117,6 +117,21 @@ iframe.bilibili{
 }
 
 // 因为hexo-theme-stellar的默认样式并没有完整实现，所以直接覆盖了
+_light_bg(){
+  --bg-url: url(../img/tiny_grid.png);
+}
+_dark_bg(){
+  --bg-url: none;
+}
+:root[data-theme="light"]
+  _light_bg()
+:root[data-theme="dark"]
+  _dark_bg()
+:root:not([data-theme])
+  _light_bg()
+  @media (prefers-color-scheme: dark)
+    _dark_bg()
+
 body{
-  background: transparent url('https://cdn.mousebomb.org/blog/wp/wp-content/themes/focused/img/tiny_grid.png') repeat fixed !important;
+      background: var(--site-bg) var(--bg-url) repeat fixed !important;
 }
