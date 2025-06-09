@@ -135,3 +135,10 @@ _dark_bg(){
 body{
       background: var(--site-bg) var(--bg-url) repeat fixed !important;
 }
+
+// 让第一幅图撑满 （早期博客内容都是有第一幅图是封面的，所以需要兼容一下）
+.md-text p:first-child img:first-child{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
